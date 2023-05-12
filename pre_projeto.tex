@@ -1,8 +1,7 @@
-\documentclass{article}
+\documentclass[a4paper, 12pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
-
 
 \begin{document}
 
@@ -16,52 +15,42 @@ no site do Programa.
 
 \subsection*{Introdução}
 
-Demonstrar
-
-- capacidade contextualização do tema de pesquisa e objetivos
-- aderência do tema às áreas de pesquisa do PPGCC
-- objetivos
-
-===============================================================================
-
 Séries temporais podem ser definidas como sequências de observações realizadas
 ao longo do tempo~\cite{chatfield}, representando uma ampla classe de dados
 cuja análise é importante para inúmeras áreas como engenharia, economia,
 biologia e meteorologia, para citar algumas. Um dos campos mais importantes da
-análise de séries temporais é o estudo das relações entre múltiplas séries e o
+análise de séries temporais é o estudo das associações entre múltiplas séries e o
 estabelecimento de modelos dinâmicos multivariados para a representação dessas
 relações conjuntas ao longo do tempo, denominado por análise de séries
 temporais multivariadas~\cite{box}.
 
-No domínio financeiro dados são frequentemente séries temporais, já que preços
-de instrumentos financeiros, taxas de juros e índices, por exemplo, evoluem no
-tempo. Observa-se o surgimento de múltiplas séries financeiras sincronizadas,
-isso é, com amostragem idêntica, em mercados de instrumentos como ações,
-\emph{commodities} e opções~\cite{someeconshit}. Análise dessas séries
-temporais de forma multivariada é de interesse devido à existência de fortes
-relações como cointegração, causalidade de Granger, e diversas medidas de
-correlação~\cite{Morettin}.
+No domínio financeiro dados são frequentemente séries temporais, já que
+existe uma evolução no tempo de preços de instrumentos financeiros, taxas de
+juros e índices, sendo estes alguns exemplos. Observa-se o surgimento de
+múltiplas séries financeiras sincronizadas, isto é, com amostragem idêntica, em
+mercados de instrumentos como ações, \emph{commodities} e opções~\cite{tsay}.
+Análise dessas séries temporais de forma multivariada é de interesse devido à
+existência de fortes relações como cointegração, causalidade de Granger, e
+diversas medidas de correlação~\cite{morettin}.
 
 Desde o surgimento de sistemas de negociação eletrônica na década de 1970 o
 componente algorítmico da tomada de decisões sobre investimentos a partir da
 análise de séries temporais financeiras tem crescido, se tornando o maior fator
 em alguns sistemas como os de \emph{High Frequency Trading}(HFT) ou uma
 ferramenta essencial em sistemas de menor frequência como os de gerenciamento
-de carteiras de investimentos ~\cite{algotrading}. Independente do nível de
+de carteiras de investimentos~\cite{kissell}. Independente do nível de
 dominância algorítmica o projeto de \emph{software} de sistemas financeiros
 atuais é uma componente de alto impacto em seu desempenho.
 
 Apesar de muitas técnicas de investimento algorítmico envolverem diretamente o
 processamento de múltiplas séries temporais suas versões mais comuns nem sempre
-usam de teoria multivariada para tomada de decisões. É argumentado na
-literatura que a incorporação dessa teoria de forma a modelar a não
-estacionariedade intrínseca aos mercados é interessante em diversas áreas de
-finanças quantitativas como otimização de portfólio~\cite{procacci}
-~\cite{luo}~\cite{cenario_generation} e precificação de opções~\cite{chorro}.
+usam de teoria multivariada para tomada de decisões. Na literatura argumenta-se
+que a incorporação dessa teoria de forma a modelar a não
+estacionariedade intrínseca aos mercados é de interesse em diversas áreas de
+finanças quantitativas, como otimização de portfólio~\cite{procacci}
+~\cite{luo}~\cite{guastaroba} e precificação de opções~\cite{chorro}.
 Outras áreas como gerenciamento de risco já são fundamentalmente baseadas em
 modelagem uni e multivariada.
-
-O objetivo do projeto proposto é
 
 
 \subsubsection*{Referencial Teórico}
@@ -90,6 +79,9 @@ Núcleo Específico: Finanças Quantitativas e Gerenciamento de Risco
 3 e 4: Programação Linear, Programação Não Linear, Análise de Séries Temporais,
 Finanças Quantitativas (sujeito à oferta)
 
-\subsubsection*{Referências}
+% \subsubsection*{Referências}
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
 
 \end{document}
