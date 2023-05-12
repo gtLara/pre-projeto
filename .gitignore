@@ -1,2 +1,5 @@
-*.aux
-*.log
+examples
+minimal.aux
+minimal.log
+minimal.pdf
+references
