@@ -1,5 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
 
+\usepackage{titlesec}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
 
@@ -24,11 +25,12 @@ o método de Média-Variância proposto por Markowitz~\cite{markowitz}. Apesar d
 conveniente devido à sua simplicidade esta medida não possui muitas
 propriedades desejáveis~\cite{rockafellar2002deviation}, tornando comum o uso
 de medidas mais elaboradas~\cite{gambrah2014risk, sereda, adam2008spectral}. Um
-dos problemas da variância, compartilhado por muitas medidas mais sofisticadas,
-é a suposição que risco é estático no tempo, enquanto mercados financeiros são
-dinâmicos e sujeitos à constante variação temporal~\cite{procacci}. Métricas de
-risco que tentam capturar a natureza dinâmica de uma carteira de investimentos
-são apropriadamente denominadas medidas de risco dinâmicas.
+dos problemas da variância(separação sujeito verbo?), compartilhado por muitas
+medidas mais sofisticadas, é a suposição que risco é estático no tempo,
+enquanto mercados financeiros são dinâmicos e sujeitos à constante variação
+temporal~\cite{procacci}. Métricas de risco que tentam capturar a natureza
+dinâmica de uma carteira de investimentos são apropriadamente denominadas
+``medidas de risco dinâmicas''.
 
 A incorporação de medidas de risco dinâmicas em otimização de portfólio pode
 ser útil para a geração de representações mais precisas de risco
@@ -37,14 +39,37 @@ distribuição de investimentos evolui ao longo do tempo por meio de políticas 
 rebalanceamento~\cite{metin, holten}. Como várias medidas de risco são
 calculadas a partir da matriz de covariância das séries temporais de preços ou
 retornos dos ativos de uma carteira, a modelagem temporal da matriz de
-covariância é uma forma de gerar métricas de risco dinâmicas que é bem
-estudada na literatura ~\cite{zakamulin2015test, chan1999portfolio}.
+covariância é uma forma de gerar métricas de risco dinâmicas que é bem estudada
+na literatura ~\cite{zakamulin2015test, chan1999portfolio}.
 
 A modelagem temporal da matriz de covariância de um conjunto de séries
 temporais é essencialmente um problema de modelagem de heteroscedasticidade
-multivariada. ~ mencionar os modelos de engle que são paramétricos, depois os
-esforços de ML, depois os de DL. mencionar como que ML e DL pode resolver os
-os problemas dos modelos tradicionais.
+multivariada. Dentre os modelos tradicionais com esta finalidade, os propostos
+por Engle~\cite{var_garch}~\cite{dcc} geram medidas de risco dinâmicas mais
+representativas que suas contrapartidas estáticas~\cite{metin, holten, weirum}.
+As dificuldades de especificação, identificação e complexidade computacional
+dos modelos de Engle e seus derivados~\cite{silvennoinen2009multivariate},
+resultantes principalmente de sua natureza paramétrica, sugerem o uso de
+modelos de aprendizado de máquina como uma alternativa mais flexível.
+
+A aplicação de algoritmos de aprendizado de máquina para modelagem temporal de
+matrizes de covariância atinge resultados melhores que abordagens tradicionais
+em alguns trabalhos~\cite{svr, ann1, ann2}. Aprendizado profundo, em
+particular, apresenta resultados promissores em estudos recentes~\cite{dl1,
+dl2, dl3?}.
+
+O objetivo do projeto proposto é investigar soluções de otimização de portfólio
+a partir de uma medida de risco dinâmica obtida por meio de modelagem
+multivariada de heteroscedasticidade de preços e retornos de ativos
+financeiros. Serão explorados modelos paramétricos, não paramétricos e híbridos
+com uma ênfase em aprendizado profundo. (incluir isso?) Como objetivo
+secundário será escrito um sistema para avaliação prática do método de
+otimização de portfólio desenvolvido.
+
+% É demonstrado na literatura que algoritmos de aprendizado de máquina não
+% paramétricos são mais eficientes para alguns problemas de econometria
+% financeira~\cite{hsu2016bridging}.
+
 
 % O objetivo do projeto proposto é aprimorar soluções de otimização de portfólio
 % a partir de uma medida de risco dinâmica obtida por meio de modelagem temporal
@@ -61,22 +86,33 @@ Demonstrar clareza em dar soluções para a linha de pesquisa escolhida
 
 \subsubsection*{Cronograma}
 
-Demonstrar exequibilidade da proposta, indicar possíveis disciplinas a cursar
-e a organização do tempo durante seu período de vínculo ao curso
+Conforme estabelecido pela estrutura curricular do PPGCC será cursada a
+disciplina Projeto e Análise de Algoritmos do Núcleo Comum. Das disciplinas das
+linhas de pesquisa de Inteligência Artificial e Otimização há interesse do
+candidato em cursar Fundamentos de Estatística para Ciência dos Dados B,
+Aprendizado Profundo, Aprendizado de Máquina, Programação Não Linear e
+Programação Estocástica. Das demais destaca-se a matéria Finanças Quantitativas
+e Gerenciamento de Risco. As matérias serão cursadas de acordo com o
+planejamento conjunto do aluno e orientador e oferta.
 
-Disciplinas:
+As atividades pertinentes à pesquisa do candidato serão distribuídas entre os
+quatro semestres da seguinte maneira:
+\begin{enumerate}
+    \item Revisão de literatura e experimentos iniciais com base de dados M6.
+    \item Início de desenvolvimento de sistema de otimização e elaboração do
+    método proposto.
+    \item Finalização do sistema de otimização. Experimentos com o método
+    proposto. Ajustes no método.
+    \item Avaliação de experimentos finais e redação de dissertação.
+\end{enumerate}
 
-Núcleo Algoritmos: Projeto e Análise de Algoritmos, Programação Competitiva
-Núcleo Estatística: FECD A, FECD B, Análise de Séries Temporais
-Núcleo Otimização: Programação Linear, Programação Não Linear
-Núcleo Específico: Finanças Quantitativas e Gerenciamento de Risco
-
-1 semestre: PAA, FECD B
-2 semestre: Machine Learning, Programação Competitiva
-3 e 4: Programação Linear, Programação Não Linear, Análise de Séries Temporais,
-Finanças Quantitativas (sujeito à oferta)
 
 \bibliographystyle{ieeetr}
-\bibliography{refs}
+
+\begingroup
+\titleformat*{\section}{\fontsize{12pt}{12pt}\bfseries\selectfont}
+% {\footnotesize
+\bibliography{refs}%}
+\endgroup
 
 \end{document}
