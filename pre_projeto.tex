@@ -1,62 +1,65 @@
 \documentclass[a4paper, 12pt]{article}
 
+\usepackage{geometry}
+\usepackage{setspace}
 \usepackage{titlesec}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
+% \addtolength{\topsep}{-5mm}
+% % \addtolength{\partopsep}{-1mm}
+% \addtolength{\itemsep}{-5mm}
+\usepackage{enumitem}
+\setlist{nosep}
 
 \begin{document}
 
-\textbf{Modelagem Multivariada de Heteroscedasticidade para estimativa de Risco
+\textbf{Modelagem Multivariada de Heteroscedasticidade para Estimativa de Risco
 Dinâmico em Otimização de Portfólio}
-
 \subsubsection*{Introdução}
-
+\begin{spacing}{.9  }
 O problema de otimização de portfólio é um desafio fundamental na teoria
 financeira que envolve a alocação eficiente de recursos em diferentes ativos. O
 objetivo é encontrar a combinação ideal de investimentos que maximize o retorno
 esperado para um determinado nível de risco, levando em conta restrições de
 investimento como limitações de alocação e liquidez. Central ao problema é a
 definição de uma medida de risco, responsável por quantificar o potencial de
-perda financeira associado à um portfólio, sendo este um tópico de considerável
-atenção acadêmica~\cite{best_risk_measure, righi2018, hoe2010, ramos2023}.
+perda financeira associado à um portfólio%, sendo este um tópico de considerável
+%atenção acadêmica~\cite{hoe2010}.
 
 A medida de risco tradicional em otimização de portfólio é variância, seguindo
-o método de Média-Variância proposto por Markowitz~\cite{markowitz}. Apesar de
-conveniente devido à sua simplicidade esta medida não possui muitas
-propriedades desejáveis~\cite{rockafellar2002deviation}, tornando comum o uso
-de medidas mais elaboradas~\cite{gambrah2014risk, sereda, adam2008spectral}. Um
-dos problemas da variância(separação sujeito verbo?), compartilhado por muitas
-medidas mais sofisticadas, é a suposição que risco é estático no tempo,
-enquanto mercados financeiros são dinâmicos e sujeitos à constante variação
-temporal~\cite{procacci}. Métricas de risco que tentam capturar a natureza
-dinâmica de uma carteira de investimentos são apropriadamente denominadas
-``medidas de risco dinâmicas''.
+o método de Média-Variância (MV) proposto por Markowitz~\cite{markowitz}.
+Apesar de conveniente devido à sua simplicidade esta medida não possui muitas
+propriedades desejáveis~\cite{rachev}, tornando comum o uso de medidas mais
+elaboradas~\cite{gambrah2014risk}. Um dos problemas da variância, compartilhado
+por muitas medidas mais sofisticadas, é a
+suposição que risco é estático no tempo, enquanto mercados financeiros são
+dinâmicos e sujeitos à constante variação temporal~\cite{procacci}. Métricas de
+risco que tentam capturar a natureza dinâmica de uma carteira de investimentos
+são apropriadamente denominadas ``medidas de risco dinâmicas''.
 
 A incorporação de medidas de risco dinâmicas em otimização de portfólio pode
 ser útil para a geração de representações mais precisas de risco
-instantâneo~\cite{weirum} e para a construção de portfólios dinâmicos, cuja
+instantâneo~\cite{chan1999portfolio} e para a construção de portfólios dinâmicos, cuja
 distribuição de investimentos evolui ao longo do tempo por meio de políticas de
 rebalanceamento~\cite{metin, holten}. Como várias medidas de risco são
 calculadas a partir da matriz de covariância das séries temporais de preços ou
 retornos dos ativos de uma carteira, a modelagem temporal da matriz de
 covariância é uma forma de gerar métricas de risco dinâmicas que é bem estudada
-na literatura ~\cite{zakamulin2015test, chan1999portfolio}.
+na literatura~\cite{chan1999portfolio}.
 
 A modelagem temporal da matriz de covariância de um conjunto de séries
 temporais é essencialmente um problema de modelagem de heteroscedasticidade
 multivariada. Dentre os modelos tradicionais com esta finalidade, os propostos
-por Engle~\cite{var_garch}~\cite{dcc} geram medidas de risco dinâmicas mais
-representativas que suas contrapartidas estáticas~\cite{metin, holten, weirum}.
-As dificuldades de especificação, identificação e complexidade computacional
-dos modelos de Engle e seus derivados~\cite{silvennoinen2009multivariate},
-resultantes principalmente de sua natureza paramétrica, sugerem o uso de
-modelos de aprendizado de máquina como uma alternativa mais flexível.
+por Engle~\cite{bauwens} geram medidas de risco dinâmicas mais representativas
+que suas contrapartidas estáticas~\cite{metin, holten, weirum}. Há uma série de
+problemas no uso prático destes modelos que decorrem de sua natureza
+paramétrica~\cite{morettin}, sugerindo o uso de modelos de \emph{machine
+learning} (ML) como uma alternativa mais flexível.
 
-A aplicação de algoritmos de aprendizado de máquina para modelagem temporal de
-matrizes de covariância atinge resultados melhores que abordagens tradicionais
-em alguns trabalhos~\cite{svr, ann1, ann2}. Aprendizado profundo, em
-particular, apresenta resultados promissores em estudos recentes~\cite{dl1,
-dl2, dl3?}.
+A aplicação de algoritmos de ML para modelagem temporal de matrizes de
+covariância atinge resultados melhores que abordagens tradicionais em alguns
+trabalhos~\cite{svr, ann}. Aprendizado profundo, em particular, apresenta
+resultados promissores em estudos recentes~\cite{multi_dl, dl2}.
 
 O objetivo do projeto proposto é investigar soluções de otimização de portfólio
 a partir de uma medida de risco dinâmica obtida por meio de modelagem
@@ -77,12 +80,63 @@ otimização de portfólio desenvolvido.
 
 \subsubsection*{Referencial Teórico}
 
-Demonstrar conhecimento da linha de pesquisa escolhida destacando em que
-pontos a proposta de projeto poderá contribuir na expansão do estado da arte
+Um dos primeiros modelos para heteroscedasticidade de séries temporais foi
+proposto por Bollerslev (1986) como uma continuação do trabalho de Engle (1982)
+~\cite{garch}. O modelo de Bollerslev, cunhado \emph{Generalized Autoregressive
+Conditional Heteroscedasticity} (GARCH), é amplamente usado em econometria
+financeira desde sua criação. Tentativas iniciais de desenvolver um modelo
+responsável pela representação de covariância condicional entre múltiplas
+séries partiram de uma generalização do GARCH para o contexto multivariado,
+resultando na classe denominada por Bauwens et. al~\cite{bauwens} como
+\emph{Multivariate} GARCH (MGARCH).
+
+É observado por múltiplos autores~\cite{bauwens, morettin} que o uso da maioria
+dos modelos MGARCH possui uma série de dificuldades práticas quanto à
+especificação de estrutura, identificação de modelo, ajuste de parâmetros e
+complexidade computacional. Uma notável exceção é o \emph{Dynamic Conditional
+Correlation} (DCC)~\cite{dcc}, desenvolvido com o propósito de contornar essas
+limitações. Fizseder et. al~\cite{svr} argumenta que abordagens de aprendizado
+de máquina não sofrem dos mesmo problemas devido ao fato de envolverem modelos
+menos paramétricos. Christensen et. al~\cite{christensen} faz um estudo
+comparativo da aplicação de diversos algoritmos de ML tradicionais para
+previsão de variância condicional univariada, demonstrando superioridade em
+relação à uma seleção de métodos econométricos. Xiong et. al~\cite{xiong}
+realiza um estudo semelhante com redes neurais \emph{Long Short Term Memory}
+(LSTM), concluindo expressiva melhora de desempenho da LSTM em relação a um
+\emph{benchmark} GARCH. Fechar falando sobre ML e DL para multivariada?
+
+Chan et. al (1999)~\cite{chan1999portfolio} apresenta um dos primeiros artigos
+influentes a diretamente investigar o impacto do emprego de variância dinâmica,
+obtida a partir de modelagem de covariância, no método de otimização MV. É
+observado pelos autores que a variância dinâmica gera resultados melhores como
+métrica de risco instantânea do que variância histórica. Modelos MGARCH são
+utilizados para construção de portfólios com políticas de rebalanceamento
+em~\cite{holten} e~\cite{weirum}, produzindo resultados melhores do que métodos
+correspondentes baseados em risco histórico. Com o mesmo objetivo Metin
+(2022)~\cite{metin} emprega o modelo DCC, motivado pela possibilidade de
+inclusão de um maior número de ativos no portfólio dinâmico, obtendo resultados
+positivos e mais flexíveis quando comparado ao uso de outros modelos MGARCH. Há
+uma série de trabalhos com objetivo semelhante que utilizam de modelos de ML.
+Redes neurais artificais são usadas em~\cite{ann}, produzindo resultados piores
+que modelos econométricos elaborados, e regressão por vetor suporte é usado
+em~\cite{svr}, atingindo acurácia e retornos melhores que um \emph{benchmark}
+DCC. Em~\cite{dl2} a união de modelos LSTM e \emph{Convolutional Neural
+Networks} (CNNs) é explorada a fim de aprimorar a extração de características
+das séries modeladas, gerando resultados superiores à otimização baseada em
+variância.
+
+Boulet (2021)~\cite{dl_multi} afirma que apesar de promissoras, abordagens de
+aprendizado profundo para previsão de matrizes de covariância foram pouco
+exploradas. Neste mesmo trabalho é apresentado uma arquitetura híbrida que une
+os modelos GARCH e LSTM, superando abordagens baseadas em MGARCH.
 
 \subsubsection*{Metodologia}
 
-Demonstrar clareza em dar soluções para a linha de pesquisa escolhida
+p1: Detalhar o que será feito
+p2: Descrever sistema desenvolvido para testar método
+p3: Descrever dados utilizados
+p4: Descrever métodos de avaliação
+
 
 \subsubsection*{Cronograma}
 
@@ -105,14 +159,14 @@ quatro semestres da seguinte maneira:
     proposto. Ajustes no método.
     \item Avaliação de experimentos finais e redação de dissertação.
 \end{enumerate}
-
-
+\end{spacing}
 \bibliographystyle{ieeetr}
-
 \begingroup
 \titleformat*{\section}{\fontsize{12pt}{12pt}\bfseries\selectfont}
+\begin{spacing}{.7}
 % {\footnotesize
 \bibliography{refs}%}
+\end{spacing}
 \endgroup
 
 \end{document}
