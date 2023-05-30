@@ -144,10 +144,10 @@ Inicialmente serão desenvolvidas duas soluções base cujo desempenho será usa
 para comparativamente avaliar o método proposto, consistindo de um otimizador
 MV com variância histórica e outro com variância dinâmica calculada a partir do
 modelo DCC. O portfólio otimizado pela solução dinâmica será rebalanceado
-diariamente, como em~\cite{metin}. Os dados usados para validar os
-\emph{benchmarks} em um primeiro momento serão as séries temporais da
-competição M6~\cite{m6}, composta de preços de cinquenta ações do índice
-S\&P500 e \emph{exchange traded funds} (ETFs).
+diariamente. Os dados usados para validar os \emph{benchmarks} em um primeiro
+momento serão as séries temporais da competição M6~\cite{m6}, composta de
+preços de cinquenta ações do índice S\&P500 e \emph{exchange traded funds}
+(ETFs).
 
 Em seguida, após uma extensa revisão de literatura, serão conduzidos
 experimentos sob condições idênticas com os modelos econométricos e de ML mais
@@ -164,12 +164,12 @@ matrizes de covariância históricas e previstas pelos métodos base e proposto.
 Durante os experimentos desta fase a política de rebalanceamento será variada
 apenas quanto ao número de dias entre rebalanceamentos consecutivos.
 
-Com o protótipo do modelo híbrido desenvolvido e validado, métricas de risco
-implementadas e intervalo de rebalanceamento definido o projeto irá alterar seu
-foco para validação da proposta em uma diversidade maior de ativos financeiros
-reais. Será desenvolvido um sistema de investimentos a partir de APIs
-financeiras disponíveis para testar o método sugerido em tempo real e ativos
-mais diversificados como \emph{commodities} e cryptomoedas.
+Com o protótipo desenvolvido e validado, métricas de risco implementadas e
+intervalo de rebalanceamento definido o projeto irá alterar seu foco para
+validação da proposta em uma diversidade maior de ativos financeiros reais.
+Será desenvolvido um sistema de investimentos a partir de APIs financeiras
+disponíveis para testar o método sugerido em tempo real e ativos mais
+diversificados como \emph{commodities} e cryptomoedas.
 
 Por fim serão realizadas avaliações da acurácia do modelo proposto em prever
 matrizes de covariâncias e, de forma mais geral, dos retornos obtidos pelo
