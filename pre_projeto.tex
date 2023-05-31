@@ -23,7 +23,7 @@ objetivo é encontrar a combinação ideal de investimentos que maximize o retor
 esperado para um determinado nível de risco, levando em conta restrições de
 investimento como limitações de alocação e liquidez. Central ao problema é a
 definição de uma medida de risco, responsável por quantificar o potencial de
-perda financeira associado à um portfólio%, sendo este um tópico de considerável
+perda financeira associado à um portfólio.%, sendo este um tópico de considerável
 %atenção acadêmica~\cite{hoe2010}.
 
 A medida de risco tradicional em otimização de portfólio é variância, seguindo
@@ -39,13 +39,14 @@ são apropriadamente denominadas ``medidas de risco dinâmicas''.
 
 A incorporação de medidas de risco dinâmicas em otimização de portfólio pode
 ser útil para a geração de representações mais precisas de risco
-instantâneo~\cite{chan1999portfolio} e para a construção de portfólios dinâmicos, cuja
-distribuição de investimentos evolui ao longo do tempo por meio de políticas de
+instantâneo~\cite{chan1999portfolio}. Estas são também úteis para a
+construção de portfólios dinâmicos, cuja distribuição de investimentos
+evolui ao longo do tempo por meio de políticas de
 rebalanceamento~\cite{metin, holten}. Como várias medidas de risco são
-calculadas a partir da matriz de covariância das séries temporais de preços ou
-retornos dos ativos de uma carteira, a modelagem temporal da matriz de
-covariância é uma forma de gerar métricas de risco dinâmicas que é bem estudada
-na literatura~\cite{chan1999portfolio}.
+calculadas a partir da matriz de covariância das séries temporais de preços
+ou retornos dos ativos de uma carteira, a modelagem temporal da matriz de
+covariância representa uma forma de gerar métricas de risco dinâmicas que é bem
+estudada na literatura~\cite{chan1999portfolio}.
 
 A modelagem temporal da matriz de covariância de um conjunto de séries
 temporais é essencialmente um problema de modelagem de heteroscedasticidade
@@ -65,16 +66,7 @@ O objetivo do projeto proposto é investigar soluções de otimização de portf
 a partir de uma medida de risco dinâmica obtida por meio de modelagem
 multivariada de heteroscedasticidade de preços e retornos de ativos
 financeiros. Serão explorados modelos paramétricos, não paramétricos e híbridos
-com uma ênfase em aprendizado profundo. FALAR MAIS AQUI?
-
-% É demonstrado na literatura que algoritmos de aprendizado de máquina não
-% paramétricos são mais eficientes para alguns problemas de econometria
-% financeira~\cite{hsu2016bridging}.
-
-
-% O objetivo do projeto proposto é aprimorar soluções de otimização de portfólio
-% a partir de uma medida de risco dinâmica obtida por meio de modelagem temporal
-% multivariada de preços de instrumentos financeiros.
+com uma ênfase em aprendizado profundo.
 
 \subsubsection*{Referencial Teórico}
 
