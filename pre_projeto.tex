@@ -13,33 +13,36 @@
 
 \begin{document}
 
-\textbf{Modelagem de Heteroscedasticidade Multivariada para Estimativa de Risco
-Dinâmico em Otimização de Portfólio}
+\textbf{Modelagem de heteroscedasticidade multivariada para estimativa de risco
+dinâmico em otimização de portfólio}
 \subsubsection*{Introdução}
 \begin{spacing}{.9}
+
 O problema de otimização de portfólio é um desafio fundamental na teoria
-financeira que envolve a alocação eficiente de recursos em diferentes ativos. O
-objetivo é encontrar a combinação ideal de investimentos que maximize o retorno
-esperado para um determinado nível de risco, levando em conta restrições de
-investimento como limitações de alocação e liquidez. Central ao problema é a
-definição de uma medida de risco, responsável por quantificar o potencial de
-perda financeira associado à um portfólio.%, sendo este um tópico de considerável
+financeira que envolve a alocação eficiente de recursos em diferentes
+ativos. Busca-se encontrar a combinação ideal de investimentos que maximize
+o retorno esperado para um determinado nível de risco, considerando
+restrições de investimento como limitações de alocação e liquidez. Central
+ao problema é a definição de uma medida de risco, responsável por
+quantificar o potencial de perda financeira associado a um portfólio.%,
+%sendo este um tópico de considerável
 %atenção acadêmica~\cite{hoe2010}.
 
 A medida de risco tradicional em otimização de portfólio é variância, seguindo
 o método de Média-Variância (MV) proposto por Markowitz~\cite{markowitz}.
-Apesar de conveniente devido à sua simplicidade esta medida não possui muitas
-propriedades desejáveis~\cite{rachev}, tornando comum o uso de medidas mais
-elaboradas~\cite{gambrah2014risk}. Um dos problemas da variância, compartilhado
-por muitas medidas mais sofisticadas, é a
-suposição que risco é estático no tempo, enquanto mercados financeiros são
-dinâmicos e sujeitos à constante variação temporal~\cite{procacci}. Métricas de
-risco que tentam capturar a natureza dinâmica de uma carteira de investimentos
-são apropriadamente denominadas ``medidas de risco dinâmicas''.
+Apesar de conveniente devido à sua simplicidade, essa medida não possui
+muitas propriedades desejáveis~\cite{rachev}, tornando comum o uso de
+medidas mais elaboradas~\cite{gambrah2014risk}. Um dos problemas da
+variância, compartilhado por muitas medidas mais sofisticadas, é a
+suposição de que risco é estático no tempo, enquanto mercados financeiros são
+dinâmicos e sujeitos à constante variação temporal~\cite{procacci}.
+Métricas de risco que tentam capturar a natureza dinâmica de uma carteira
+de investimentos são apropriadamente denominadas ``medidas de risco
+dinâmicas''.
 
 A incorporação de medidas de risco dinâmicas em otimização de portfólio pode
 ser útil para a geração de representações mais precisas de risco
-instantâneo~\cite{chan1999portfolio}. Estas são também úteis para a
+instantâneo~\cite{chan1999portfolio}. Essas medidas são também úteis para a
 construção de portfólios dinâmicos, cuja distribuição de investimentos
 evolui ao longo do tempo por meio de políticas de
 rebalanceamento~\cite{metin, holten}. Como várias medidas de risco são
@@ -50,7 +53,7 @@ estudada na literatura~\cite{chan1999portfolio}.
 
 A modelagem temporal da matriz de covariância de um conjunto de séries
 temporais é essencialmente um problema de modelagem de heteroscedasticidade
-multivariada. Dentre os modelos tradicionais com esta finalidade, os propostos
+multivariada. Dentre os modelos tradicionais com tal finalidade, os propostos
 por Engle~\cite{bauwens} geram medidas de risco dinâmicas mais representativas
 que suas contrapartidas estáticas~\cite{metin, holten, weirum}. Há uma série de
 problemas no uso prático destes modelos que decorrem de sua natureza
@@ -58,15 +61,16 @@ paramétrica~\cite{morettin}, sugerindo o uso de modelos de \emph{machine
 learning} (ML) como uma alternativa mais flexível.
 
 A aplicação de algoritmos de ML para modelagem temporal de matrizes de
-covariância atinge resultados melhores que abordagens tradicionais em alguns
-trabalhos~\cite{svr, ann}. Aprendizado profundo, em particular, apresenta
-resultados promissores em estudos recentes~\cite{dl_multi, dl2, fang2021cnn}.
+covariância atinge resultados melhores que abordagens tradicionais em
+alguns trabalhos~\cite{svr, ann}. A abordagem de aprendizado profundo, em
+particular, apresenta resultados promissores em estudos
+recentes~\cite{dl_multi, dl2, fang2021cnn}.
 
-O objetivo do projeto proposto é investigar soluções de otimização de portfólio
-a partir de uma medida de risco dinâmica obtida por meio de modelagem
-multivariada de heteroscedasticidade de preços e retornos de ativos
-financeiros. Serão explorados modelos paramétricos, não paramétricos e híbridos
-com uma ênfase em aprendizado profundo.
+Dessa forma, o objetivo do projeto proposto é investigar soluções de otimização
+de portfólio a partir de uma medida de risco dinâmica obtida por meio de
+modelagem multivariada de heteroscedasticidade de preços e retornos de
+ativos financeiros. Serão explorados modelos paramétricos, não paramétricos
+e híbridos com uma ênfase em aprendizado profundo.
 
 \subsubsection*{Referencial Teórico}
 
@@ -86,15 +90,15 @@ especificação de estrutura, identificação de modelo, ajuste de parâmetros e
 complexidade computacional. Uma notável exceção é o \emph{Dynamic Conditional
 Correlation} (DCC)~\cite{dcc}, desenvolvido com o propósito de contornar essas
 limitações. Fizseder et. al~\cite{svr} argumenta que abordagens de aprendizado
-de máquina não sofrem dos mesmo problemas devido ao fato de envolverem modelos
+de máquina não sofrem dos mesmos problemas devido ao fato de envolverem modelos
 menos paramétricos. Christensen et. al~\cite{christensen} faz um estudo
 comparativo da aplicação de diversos algoritmos de ML tradicionais para
 previsão de variância condicional univariada, demonstrando superioridade em
-relação à uma seleção de métodos econométricos. Xiong et. al~\cite{xiong}
+relação a uma seleção de métodos econométricos. Xiong et. al~\cite{xiong}
 realiza um estudo semelhante com redes neurais \emph{Long Short Term Memory}
 (LSTM)~\cite{LSTM}, concluindo expressiva melhora de desempenho da LSTM em relação a um
 \emph{benchmark} GARCH. Aprendizado profundo é utilizado para previsão de
-matrizes de covariância em~\cite{fang2021cnn}, onde os autores usam
+matrizes de covariância em~\cite{fang2021cnn}, em que os autores usam
 \emph{Convolutional} LSTM (ConvLSTM)~\cite{convlstm} obtendo acurácia superior
 à de múltiplos modelos tradicionais.
 
@@ -106,26 +110,26 @@ observado pelos autores que a variância dinâmica gera resultados melhores como
 métrica de risco instantânea do que variância histórica. Modelos MGARCH são
 utilizados para construção de portfólios com políticas de rebalanceamento
 em~\cite{holten} e~\cite{weirum}, produzindo resultados melhores do que métodos
-correspondentes baseados em risco histórico. Com o mesmo objetivo Metin
+correspondentes baseados em risco histórico. Com o mesmo objetivo Metin,
 (2022)~\cite{metin} emprega o modelo DCC, motivado pela possibilidade de
 inclusão de um maior número de ativos no portfólio dinâmico, obtendo resultados
 positivos e mais flexíveis quando comparado ao uso de outros modelos MGARCH. Há
 uma série de trabalhos com propósito semelhante que utilizam modelos de ML.
 Redes neurais artificais são usadas em~\cite{ann}, produzindo resultados piores
-que modelos econométricos elaborados, e regressão por vetor suporte é usado
-em~\cite{svr}, atingindo acurácia e retornos melhores que um \emph{benchmark}
-DCC. Em~\cite{dl2} a união de modelos LSTM e \emph{Convolutional Neural
-Networks} (CNNs)~\cite{cnn} é explorada a fim de aprimorar a extração de características
-das séries modeladas, gerando resultados superiores à otimização baseada em
-variância tradicional.
+que os de modelos econométricos elaborados, e regressão por vetor suporte é
+usada em~\cite{svr}, atingindo acurácia e retornos melhores que um
+\emph{benchmark} DCC. Em~\cite{dl2} a união de modelos LSTM e
+\emph{Convolutional Neural Networks} (CNNs)~\cite{cnn} é explorada a fim de
+aprimorar a extração de características das séries modeladas, gerando
+resultados superiores à otimização baseada em variância tradicional.
 
-Boulet (2021)~\cite{dl_multi} afirma que apesar de promissoras, abordagens de
+Boulet (2021)~\cite{dl_multi} afirma que, apesar de promissoras, abordagens de
 aprendizado profundo para previsão de matrizes de covariância foram pouco
-exploradas. Neste mesmo trabalho é apresentado uma arquitetura híbrida que une
-os modelos GARCH e LSTM, superando abordagens baseada em MGARCH.
+exploradas. Nesse mesmo trabalho é apresentada uma arquitetura híbrida que une
+os modelos GARCH e LSTM, superando abordagens baseadas em MGARCH.
 
-Observa-se que apesar de emergentes métodos de ML estão próximos ao estado da
-arte. O contexto estabelecido acima motiva o estudo de abordagens de
+Observa-se que, embora emergentes, métodos de ML estão próximos ao estado da
+arte. O contexto estabelecido anteriormente motiva o estudo de abordagens de
 aprendizado de máquina ao problema discutido, com o desenvolvimento de
 arquiteturas neurais profundas híbridas entre modelos MGARCH, CNNs e LSTMs
 sendo de particular interesse.
@@ -133,37 +137,37 @@ sendo de particular interesse.
 \subsubsection*{Metodologia}
 
 Inicialmente serão desenvolvidas duas soluções base cujo desempenho será usado
-para comparativamente avaliar o método proposto, consistindo de um otimizador
-MV com variância histórica e outro com variância dinâmica calculada a partir do
-modelo DCC. O portfólio otimizado pela solução dinâmica será rebalanceado
-diariamente, como em~\cite{metin}. Os dados usados para validar os
-\emph{benchmarks} em um primeiro momento serão as séries temporais da
-competição M6~\cite{m6}, composta de preços de cinquenta ações do índice
+para comparativamente avaliar o método proposto. Essas soluções serão compostas
+por um otimizador MV com variância histórica e outro com variância dinâmica
+calculada a partir do modelo DCC. O portfólio otimizado pela solução dinâmica
+será rebalanceado diariamente, como em~\cite{metin}. Os dados usados para
+validar os \emph{benchmarks} em um primeiro momento serão as séries temporais
+da competição M6~\cite{m6}, composta de preços de cinquenta ações do índice
 S\&P500 e \emph{exchange traded funds} (ETFs).
 
 Em seguida, após uma extensa revisão de literatura, serão conduzidos
 experimentos sob condições idênticas com os modelos econométricos e de ML mais
 promissores. Será explorado o uso de redes LSTM e ConvLSTM com mecanismos de
-atenção e CNNs. As combinações desses modelos serão investigadas de forma a
-averiguar o potencial de um modelo híbrido, composto por DCC e ConvLSTM baseada
-em atenção, na expansão do estado da arte, seguindo os resultados positivos
-de~\cite{dl_multi}. Este modelo híbrido é a principal contribuição sugerida
-pelo projeto. Após a validação e prototipagem do modelo desenvolvido, ainda
-utilizando a base de dados da competição M6, será explorado o impacto de
-medidas de risco dinâmicas alternativas, como Valor em Risco (VaR) e
-\emph{limited expected loss}~\cite{gambrah2014risk}, calculadas a partir das
+atenção~\cite{attention} e CNNs. As combinações desses modelos serão
+investigadas de forma a averiguar o potencial de um modelo híbrido, composto
+por DCC e ConvLSTM baseada em atenção, na expansão do estado da arte, seguindo
+os resultados positivos de~\cite{dl_multi}. Este modelo híbrido é a principal
+contribuição sugerida pelo projeto. Após a validação e prototipagem do modelo
+desenvolvido, ainda utilizando a base de dados da competição M6, será explorado
+o impacto de medidas de risco dinâmicas alternativas, como Valor em Risco (VaR)
+e \emph{limited expected loss}~\cite{gambrah2014risk}, calculadas a partir das
 matrizes de covariância históricas e previstas pelos métodos base e proposto.
-Durante os experimentos desta fase a política de rebalanceamento será variada
+Durante os experimentos desta fase, a política de rebalanceamento será variada
 apenas quanto ao número de dias entre rebalanceamentos consecutivos.
 
 Com o protótipo do modelo híbrido desenvolvido e validado, métricas de risco
-implementadas e intervalo de rebalanceamento definido o projeto irá alterar seu
+implementadas e intervalo de rebalanceamento definido, o projeto irá alterar seu
 foco para validação da proposta em uma diversidade maior de ativos financeiros
 reais. Será desenvolvido um sistema de investimentos a partir de APIs
 financeiras disponíveis para testar o método sugerido em tempo real e ativos
 mais diversificados como \emph{commodities} e cryptomoedas.
 
-Por fim serão realizadas avaliações da acurácia do modelo proposto em prever
+Por fim, serão realizadas avaliações da acurácia do modelo proposto em prever
 matrizes de covariâncias e, de forma mais geral, dos retornos obtidos pelo
 portfólio dinâmico sob as medidas de risco exploradas. A linguagem de
 programação utilizada no projeto será \verb+Python+ e o \emph{framework} de
@@ -171,12 +175,12 @@ aprendizado profundo \verb+PyTorch+.
 
 \subsubsection*{Cronograma}
 
-Conforme estabelecido pela estrutura curricular do PPGCC será cursada a
+Conforme estabelecido pela estrutura curricular do PPGCC, será cursada a
 disciplina Projeto e Análise de Algoritmos do Núcleo Comum. Das disciplinas das
-linhas de pesquisa de Inteligência Artificial e Otimização há interesse do
+linhas de pesquisa de Inteligência Artificial e Otimização, interesse do
 candidato em cursar Fundamentos de Estatística para Ciência dos Dados B,
 Aprendizado Profundo, Aprendizado de Máquina, Programação Não Linear e
-Programação Estocástica. Das demais destaca-se a matéria Finanças Quantitativas
+Programação Estocástica. Das demais, destaca-se a matéria Finanças Quantitativas
 e Gerenciamento de Risco. As matérias serão cursadas de acordo com sua oferta e
 planejamento em conjunto entre o candidato e seu orientador.
 
