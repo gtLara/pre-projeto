@@ -13,8 +13,10 @@
 
 \begin{document}
 
+\begin{center}
 \textbf{Modelagem de heteroscedasticidade multivariada para estimativa de risco
 dinâmico em otimização de portfólio}
+\end{center}
 \subsubsection*{Introdução}
 \begin{spacing}{.9}
 
@@ -28,9 +30,9 @@ quantificar o potencial de perda financeira associado a um portfólio.%,
 
 A medida de risco tradicional em otimização de portfólio é variância, seguindo
 o método de Média-Variância (MV) proposto por Markowitz~\cite{markowitz}.
-Apesar de conveniente devido à sua simplicidade, essa medida não possui
-muitas propriedades desejáveis~\cite{rachev}, tornando comum o uso de
-medidas mais elaboradas~\cite{gambrah2014risk}. Um dos problemas da
+Apesar de conveniente devido à sua simplicidade, essa medida possui
+muitas propriedades indesejáveis~\cite{rachev}, tornando comum o uso de
+medidas alternativas~\cite{gambrah2014risk}. Um dos problemas da
 variância, compartilhado por muitas medidas mais sofisticadas, é a
 suposição de que o risco é estático no tempo, enquanto mercados financeiros são
 dinâmicos e sujeitos à constante variação temporal~\cite{procacci}.
@@ -87,13 +89,13 @@ dos modelos MGARCH possui uma série de dificuldades práticas quanto à
 especificação de estrutura, identificação de modelo, ajuste de parâmetros e
 complexidade computacional. Uma notável exceção é o \emph{Dynamic Conditional
 Correlation} (DCC)~\cite{dcc}, desenvolvido com o propósito de contornar essas
-limitações. Fizseder et. al~\cite{svr} argumenta que abordagens de aprendizado
-de máquina não sofrem dos mesmos problemas devido ao fato de envolverem modelos
-menos paramétricos. Christensen et. al~\cite{christensen} faz um estudo
+limitações. Fizseder et. al~\cite{svr} argumentam que abordagens de aprendizado
+de máquina não sofrem dos mesmos problemas devido ao fato de envolverem menos
+suposições sobre as distribuições modeladas. Christensen et. al~\cite{christensen} faz um estudo
 comparativo da aplicação de diversos algoritmos de ML tradicionais para
 previsão de variância condicional univariada, demonstrando superioridade em
 relação a uma seleção de métodos econométricos. Xiong et. al~\cite{xiong}
-realiza um estudo semelhante com redes neurais \emph{Long Short Term Memory}
+realizam um estudo semelhante com redes neurais \emph{Long Short Term Memory}
 (LSTM)~\cite{LSTM}, concluindo expressiva melhora de desempenho da LSTM em relação a um
 \emph{benchmark} GARCH. Aprendizado profundo é utilizado para previsão de
 matrizes de covariância em~\cite{fang2021cnn}, em que os autores usam
